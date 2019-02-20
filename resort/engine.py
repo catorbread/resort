@@ -33,6 +33,7 @@ class ResortEngine:
             eio = EtalonIO(project=project)
             for snapshot in client.snapshot_etalons():
                 etalon = eio.restore(snapshot)
+                LOG.info('just testing')
                 result = differ.check(etalon, snapshot)
                 check_hash['changes'] += result['changes']
                 assert etalon.entry == snapshot.entry
